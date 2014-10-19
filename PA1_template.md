@@ -1,5 +1,10 @@
-# Reproducible Research: Peer Assessment 1
-Sunday, October 19, 2014  
+---
+title: "Reproducible Research: Peer Assessment 1"
+date: "Sunday, October 19, 2014"
+output: 
+  html_document:
+    keep_md: true
+---
 
 ## Load the required libraries 
 
@@ -41,7 +46,7 @@ barplot(totalStep$totalstep, axis.lty = 1, names.arg = totalStep$date,
         main = "Number of Steps Taken Each Day")
 ```
 
-![](./PA1_template_files/figure-html/unnamed-chunk-2-1.png) 
+![plot of chunk unnamed-chunk-2](figure/unnamed-chunk-2-1.png) 
 
 Report the mean total number of steps taken per day
 
@@ -84,7 +89,7 @@ plot(intervalStep$interval, intervalStep$mean, type="l",
      main="Average number of steps taken across all days")
 ```
 
-![](./PA1_template_files/figure-html/unnamed-chunk-6-1.png) 
+![plot of chunk unnamed-chunk-6](figure/unnamed-chunk-6-1.png) 
 
 Report the 5-minute interval, on average across all the days in the dataset, contains the maximum number of steps
 
@@ -116,7 +121,7 @@ Create a new dataset, called newRawTable, that is equal to the original dataset 
 Strategy for filling the missing data:
 
 - based on mean for that 5-min interval (left join)
-- use the mean value if "steps" is NA
+- if "steps" is NA, replace it with the mean value of the corresponding 5-min interval
 
 ```r
 newRawTable <- rawTable %>%
@@ -138,7 +143,7 @@ barplot(newTotalStep$totalstep, axis.lty = 1, names.arg = newTotalStep$date,
         main = "Number of Steps Taken Each Day")
 ```
 
-![](./PA1_template_files/figure-html/unnamed-chunk-10-1.png) 
+![plot of chunk unnamed-chunk-10](figure/unnamed-chunk-10-1.png) 
 Report the mean total number of steps taken per day
 
 ```r
@@ -195,7 +200,7 @@ p <- xyplot(mean ~ interval | weekday, data=weekdayIntervalStep,
 print (p)  
 ```
 
-![](./PA1_template_files/figure-html/unnamed-chunk-14-1.png) 
+![plot of chunk unnamed-chunk-14](figure/unnamed-chunk-14-1.png) 
 
 Based on the plot, it suggests that there is a difference of activity pattern in weekend and weekday:
 

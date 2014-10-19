@@ -88,7 +88,7 @@ Create a new dataset, called newRawTable, that is equal to the original dataset 
 Strategy for filling the missing data:
 
 - based on mean for that 5-min interval (left join)
-- use the mean value if "steps" is NA
+- if "steps" is NA, replace it with the mean value of the corresponding 5-min interval
 ```{r}
 newRawTable <- rawTable %>%
     left_join(intervalStep, by="interval") %>%
